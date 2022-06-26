@@ -1,49 +1,19 @@
-# php-package-template
+# liquid-handling-robotics
 
-[![Continuous Integration](https://github.com/spawnia/php-package-template/workflows/Continuous%20Integration/badge.svg)](https://github.com/spawnia/php-package-template/actions)
-[![Code Coverage](https://codecov.io/gh/spawnia/php-package-template/branch/master/graph/badge.svg)](https://codecov.io/gh/spawnia/php-package-template)
+[![Continuous Integration](https://github.com/mll-lab/liquid-handling-robotics/workflows/Continuous%20Integration/badge.svg)](https://github.com/mll-lab/liquid-handling-robotics/actions)
+[![Code Coverage](https://codecov.io/gh/mll-lab/liquid-handling-robotics/branch/master/graph/badge.svg)](https://codecov.io/gh/mll-lab/liquid-handling-robotics)
 
-[![Latest Stable Version](https://poser.pugx.org/spawnia/php-package-template/v/stable)](https://packagist.org/packages/spawnia/php-package-template)
-[![Total Downloads](https://poser.pugx.org/spawnia/php-package-template/downloads)](https://packagist.org/packages/spawnia/php-package-template)
+[![Latest Stable Version](https://poser.pugx.org/mll-lab/liquid-handling-robotics/v/stable)](https://packagist.org/packages/mll-lab/liquid-handling-robotics)
+[![Total Downloads](https://poser.pugx.org/mll-lab/liquid-handling-robotics/downloads)](https://packagist.org/packages/mll-lab/liquid-handling-robotics)
 
-GitHub repository template for a PHP package
-
-# Remove this section after cloning
-
-Search & Replace with your title:
-
-```
-GitHub repository template for a PHP package
-```
-
-Search & Replace with your package name:
-
-```
-php-package-template
-PhpPackageTemplate
-```
-
-Search & Replace with your username/vendor (match case):
-
-```
-spawnia
-Spawnia
-```
-
-Link the package at https://packagist.org
-
-Enable code coverage at https://codecov.io
-
-Thanks to @localheinz for providing the inspiration for this template: https://github.com/ergebnis/php-package-template
-
-# Remove this section after cloning
+PHP package to handle data from liquid handling robots
 
 ## Installation
 
 Install through composer
 
 ```sh
-composer require spawnia/php-package-template
+composer require mll-lab/liquid-handling-robotics
 ```
 
 ## Usage

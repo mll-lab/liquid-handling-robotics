@@ -1,17 +1,24 @@
 {
-  "name": "spawnia/php-package-template",
-  "type": "library",
-  "description": "GitHub repository template for a PHP package",
-  "homepage": "https://github.com/spawnia/php-package-template",
+  "name": "mll-lab/liquid-handling-robotics",
+  "description": "PHP package to handle data from liquid handling robots",
   "license": "MIT",
+  "type": "library",
   "authors": [
     {
-      "name": "Benedikt Franke",
-      "email": "benedikt@franke.tech"
+      "name": "Simon Bigelmayr",
+      "email": "s.bigelmayr@gmx.net"
     }
   ],
+  "homepage": "https://github.com/mll-lab/liquid-handling-robotics",
+  "support": {
+    "issues": "https://github.com/mll-lab/liquid-handling-robotics/issues",
+    "source": "https://github.com/mll-lab/liquid-handling-robotics"
+  },
   "require": {
     "php": "^7.4 || ^8",
+    "illuminate/support": "^7 || ^8",
+    "mll-lab/microplate": "^3.5",
+    "mll-lab/php-utils": "^1.2",
     "thecodingmachine/safe": "^1"
   },
   "require-dev": {
@@ -28,28 +35,24 @@
     "symfony/var-dumper": "^5",
     "thecodingmachine/phpstan-safe-rule": "^1.1"
   },
+  "autoload": {
+    "psr-4": {
+      "Mll\\LiquidHandlingRobotics\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Mll\\LiquidHandlingRobotics\\Tests\\": "tests/"
+    },
+    "files": [
+      "vendor/symfony/var-dumper/Resources/functions/dump.php"
+    ]
+  },
   "config": {
     "platform": {
       "php": "7.4.24"
     },
     "preferred-install": "dist",
     "sort-packages": true
-  },
-  "autoload": {
-    "psr-4": {
-      "Spawnia\\PhpPackageTemplate\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Spawnia\\PhpPackageTemplate\\Tests\\": "tests/"
-    },
-    "files": [
-      "vendor/symfony/var-dumper/Resources/functions/dump.php"
-    ]
-  },
-  "support": {
-    "issues": "https://github.com/spawnia/php-package-template/issues",
-    "source": "https://github.com/spawnia/php-package-template"
   }
 }
