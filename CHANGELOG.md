@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## v1.0.0
+
 ### Added
 
--
+- Add class `FluidXPlate` as a container for the scanned rackId and the scanned wells associated with a Coordinate (96-well format) from `mll-lab/microplate`
+- Add class `TecanScanner` to parse a raw scan result string into a `FluidXPlate`
