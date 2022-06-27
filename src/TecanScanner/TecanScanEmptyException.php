@@ -2,7 +2,7 @@
 
 namespace Mll\LiquidHandlingRobotics\TecanScanner;
 
-class TecanScanEmptyException extends TecanScanException
+final class TecanScanEmptyException extends TecanScanException
 {
     public function __construct()
     {

@@ -2,7 +2,7 @@
 
 namespace Mll\LiquidHandlingRobotics\FluidXPlate;
 
-class InvalidRackIdException extends FluidXPlateException
+final class InvalidRackIdException extends FluidXPlateException
 {
     public function __construct(string $rackId)
     {

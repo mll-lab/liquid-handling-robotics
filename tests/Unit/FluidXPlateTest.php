@@ -41,18 +41,20 @@ final class FluidXPlateTest extends TestCase
         $barcode = 'testWrongBarcode';
         $rackId = 'AB12345678';
         $fluidXPlate = new FluidXPlate($rackId);
+        $coordinate = Coordinate::fromString('A1', new CoordinateSystem96Well());
 
         $this->expectExceptionObject(new InvalidTubeBarcodeException($barcode));
-        $fluidXPlate->addWell(Coordinate::fromString('A1', new CoordinateSystem96Well()), $barcode);
+        $fluidXPlate->addWell($coordinate, $barcode);
     }
 
     public function testCanOnlyAddStringAsBarcode(): void
     {
         $rackId = 'AB12345678';
         $fluidXPlate = new FluidXPlate($rackId);
+        $coordinate = Coordinate::fromString('A1', new CoordinateSystem96Well());
 
         $this->expectException(TypeError::class);
-        // @phpstan-ignore-next-line expecting a type error due to and array as content paramenter
-        $fluidXPlate->addWell(Coordinate::fromString('A1', new CoordinateSystem96Well()), []);
+        // @phpstan-ignore-next-line intentionally wrong
+        $fluidXPlate->addWell($coordinate, []);
     }
 }

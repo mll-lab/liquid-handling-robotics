@@ -38,7 +38,6 @@ final class TecanScanner
         $plate = new FluidXPlate(Str::substr($firstLineWithRackId, 7));
 
         foreach ($lines as $line) {
-            assert(is_string($line));
             $barcode = Str::after($line, ',');
 
             if (self::NO_READ !== $barcode) {

@@ -2,7 +2,7 @@
 
 namespace Mll\LiquidHandlingRobotics\TecanScanner;
 
-class NoRackIdException extends TecanScanException
+final class NoRackIdException extends TecanScanException
 {
     public function __construct()
     {

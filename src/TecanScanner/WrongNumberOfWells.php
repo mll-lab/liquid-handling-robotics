@@ -2,7 +2,7 @@
 
 namespace Mll\LiquidHandlingRobotics\TecanScanner;
 
-class WrongNumberOfWells extends TecanScanException
+final class WrongNumberOfWells extends TecanScanException
 {
     public function __construct(int $expectedCount, int $actualCount)
     {

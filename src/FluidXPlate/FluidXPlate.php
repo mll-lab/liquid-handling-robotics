@@ -21,6 +21,7 @@ final class FluidXPlate extends Microplate
             throw new InvalidRackIdException($rackId);
         }
         $this->rackId = $rackId;
+
         parent::__construct(self::coordinateSystem());
     }
 
