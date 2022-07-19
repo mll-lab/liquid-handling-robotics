@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Mll\LiquidHandlingRobotics\Tests\Unit;
+namespace Mll\LiquidHandlingRobotics\Tests\Unit\FluidXPlate;
 
 use Mll\LiquidHandlingRobotics\FluidXPlate\FluidXPlate;
 use Mll\LiquidHandlingRobotics\FluidXPlate\InvalidRackIdException;

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Mll\LiquidHandlingRobotics\Tests\Unit;
+namespace Mll\LiquidHandlingRobotics\Tests\Unit\TecanScanner;
 
 use Mll\LiquidHandlingRobotics\TecanScanner\NoRackIdException;
 use Mll\LiquidHandlingRobotics\TecanScanner\TecanScanEmptyException;
