@@ -4,7 +4,7 @@ namespace Mll\LiquidHandlingRobotics\Tests\TestImplentations;
 
 use Mll\LiquidHandlingRobotics\Tecan\Rack;
 
-class TestRack implements Rack
+final class TestRack implements Rack
 {
     public function name(): string
     {

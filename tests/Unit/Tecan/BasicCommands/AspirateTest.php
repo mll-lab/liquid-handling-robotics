@@ -9,7 +9,7 @@ use Mll\LiquidHandlingRobotics\Tests\TestImplentations\TestLiquidClass;
 use Mll\LiquidHandlingRobotics\Tests\TestImplentations\TestRack;
 use PHPUnit\Framework\TestCase;
 
-class AspirateTest extends TestCase
+final class AspirateTest extends TestCase
 {
     public function testAspirateWithBarcodeLocation(): void
     {

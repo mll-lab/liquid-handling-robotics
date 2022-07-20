@@ -14,7 +14,7 @@ use Mll\LiquidHandlingRobotics\Tests\TestImplentations\TestRack;
 use MLL\Utils\StringUtil;
 use PHPUnit\Framework\TestCase;
 
-class TecanProtocolTest extends TestCase
+final class TecanProtocolTest extends TestCase
 {
     public function testAspirateWithBarcodeLocationForTips(): void
     {
