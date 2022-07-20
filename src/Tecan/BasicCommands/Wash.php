@@ -11,6 +11,6 @@ class Wash implements Command
 
     public function toString(): string
     {
-        return $this::commandLetter();
+        return static::commandLetter();
     }
 }

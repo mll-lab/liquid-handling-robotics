@@ -20,7 +20,7 @@ abstract class BasicPipettingActionCommand implements PipettingActionCommand
     public function toString(): string
     {
         return
-            $this::commandLetter() . ';'
+            static::commandLetter() . ';'
             . $this->location->rackName() . ';'
             . $this->location->rackId() . ';'
             . $this->location->rackType() . ';'

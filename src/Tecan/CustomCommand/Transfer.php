@@ -31,7 +31,7 @@ class Transfer implements PipettingActionCommand
             . TecanProtocol::NEW_LINE
             . $this->dispense->toString()
             . TecanProtocol::NEW_LINE
-            . $this::commandLetter();
+            . static::commandLetter();
     }
 
     public function setTipMask(int $tipMask): void
