@@ -16,7 +16,7 @@ class TecanProtocol
     public const WINDOWS_NEW_LINE = "\r\n";
 
     /**
-     * @var Collection<Command>
+     * @var Collection<int, Command>
      */
     private Collection $commands;
 
@@ -46,14 +46,11 @@ class TecanProtocol
 
     public function buildProtocol(): string
     {
-        return $this
-            ->commands
-            ->map(
-                function ($command): string {
-                    assert($command instanceof Command);
-
-                    return $command->toString();
-                }
-            )->join(self::WINDOWS_NEW_LINE) . self::WINDOWS_NEW_LINE;
+        return $this->commands
+            ->map(function (Command $command): string {
+                return $command->toString();
+            })
+            ->join(self::WINDOWS_NEW_LINE)
+            . self::WINDOWS_NEW_LINE;
     }
 }
