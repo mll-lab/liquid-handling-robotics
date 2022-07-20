@@ -22,7 +22,8 @@ class TecanProtocol
 
     private TipMask $tipMask;
 
-    public function __construct(TipMask $tipMask) {
+    public function __construct(TipMask $tipMask)
+    {
         $this->commands = new Collection([]);
         $this->tipMask = $tipMask;
     }
