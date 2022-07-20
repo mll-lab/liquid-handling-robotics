@@ -30,7 +30,7 @@ abstract class BasicPipettingActionCommand implements PipettingActionCommand
             . $this->liquidClass->name() . ';'
             . ';' // tipType
             . $this->getTipMask() . ';'
-            ;
+        ;
     }
 
     protected function getTipMask(): string

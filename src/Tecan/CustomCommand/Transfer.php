@@ -28,9 +28,9 @@ class Transfer implements PipettingActionCommand
     {
         return
             $this->aspirate->toString()
-            . TecanProtocol::NEW_LINE
+            . TecanProtocol::WINDOWS_NEW_LINE
             . $this->dispense->toString()
-            . TecanProtocol::NEW_LINE
+            . TecanProtocol::WINDOWS_NEW_LINE
             . static::commandLetter();
     }
 

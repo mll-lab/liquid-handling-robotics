@@ -54,6 +54,6 @@ class TecanProtocol
 
                     return $command->toString();
                 }
-            )->join(self::NEW_LINE) . self::NEW_LINE;
+            )->join(self::WINDOWS_NEW_LINE) . self::WINDOWS_NEW_LINE;
     }
 }
