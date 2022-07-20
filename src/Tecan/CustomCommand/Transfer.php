@@ -7,7 +7,7 @@ use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\Dispense;
 use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\PipettingActionCommand;
 use Mll\LiquidHandlingRobotics\Tecan\TecanProtocol;
 
-class Transfer implements PipettingActionCommand
+final class Transfer implements PipettingActionCommand
 {
     private Aspirate $aspirate;
 

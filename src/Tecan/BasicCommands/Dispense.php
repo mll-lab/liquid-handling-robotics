@@ -5,7 +5,7 @@ namespace Mll\LiquidHandlingRobotics\Tecan\BasicCommands;
 use Mll\LiquidHandlingRobotics\Tecan\LiquidClass;
 use Mll\LiquidHandlingRobotics\Tecan\Location\Location;
 
-class Dispense extends BasicPipettingActionCommand implements Command
+final class Dispense extends BasicPipettingActionCommand implements Command
 {
     public function __construct(int $volume, Location $location, LiquidClass $liquidClass)
     {

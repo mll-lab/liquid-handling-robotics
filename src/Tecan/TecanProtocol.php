@@ -8,7 +8,7 @@ use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\Command;
 use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\PipettingActionCommand;
 use Mll\LiquidHandlingRobotics\Tecan\TipMask\TipMask;
 
-class TecanProtocol
+final class TecanProtocol
 {
     /**
      * Tecan software runs on Windows.
