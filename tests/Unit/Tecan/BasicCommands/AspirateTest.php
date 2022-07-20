@@ -16,7 +16,7 @@ final class AspirateTest extends TestCase
         $barcode = 'barcode';
         $aspirate = new Aspirate(100, new BarcodeLocation($barcode, new TestRack()), new TestLiquidClass());
         self::assertSame($barcode, $aspirate->location->tubeId());
-        self::assertSame('', $aspirate->location->position());
+        self::assertNull($aspirate->location->position());
         self::assertSame('A;TestRackName;;TestRackType;;barcode;100;TestLiquidClassName;;;', $aspirate->toString());
     }
 
@@ -24,7 +24,7 @@ final class AspirateTest extends TestCase
     {
         $position = 7;
         $aspirate = new Aspirate(100, new PositionLocation($position, new TestRack()), new TestLiquidClass());
-        self::assertSame('', $aspirate->location->tubeId());
+        self::assertNull($aspirate->location->tubeId());
         self::assertSame((string) $position, $aspirate->location->position());
         self::assertSame('A;;;TestRackType;7;;100;TestLiquidClassName;;;', $aspirate->toString());
     }

@@ -2,7 +2,7 @@
 
 namespace Mll\LiquidHandlingRobotics\Tecan\BasicCommands;
 
-class Wash implements Command
+final class Wash implements Command
 {
     public static function commandLetter(): string
     {

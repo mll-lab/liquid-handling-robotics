@@ -2,7 +2,7 @@
 
 namespace Mll\LiquidHandlingRobotics\Tecan\BasicCommands;
 
-class BreakCommand implements Command
+final class BreakCommand implements Command
 {
     public static function commandLetter(): string
     {

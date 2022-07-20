@@ -8,7 +8,7 @@ use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\Command;
 use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\PipettingActionCommand;
 use Mll\LiquidHandlingRobotics\Tecan\TipMask\TipMask;
 
-class TecanProtocol
+final class TecanProtocol
 {
     /**
      * Tecan software runs on Windows.
@@ -28,19 +28,24 @@ class TecanProtocol
         $this->tipMask = $tipMask;
     }
 
-    public function addCommandCurrentTip(PipettingActionCommand $command): void
+    public function addCommandCurrentTip(Command $command): void
     {
-        $command->setTipMask($this->tipMask->currentTip ?? TipMask::firstTip());
+        if ($command instanceof PipettingActionCommand) {
+            $command->setTipMask($this->tipMask->currentTip ?? TipMask::firstTip());
+        }
         $this->commands->add($command);
     }
 
-    public function addCommandForNextTip(PipettingActionCommand $command): void
+    public function addCommandForNextTip(Command $command): void
     {
-        if ($this->tipMask->isLastTip()) {
-            $this->commands->add(new BreakCommand());
+        if ($command instanceof PipettingActionCommand) {
+            if ($this->tipMask->isLastTip()) {
+                $this->commands->add(new BreakCommand());
+            }
+
+            $command->setTipMask($this->tipMask->nextTip());
         }
 
-        $command->setTipMask($this->tipMask->nextTip());
         $this->commands->add($command);
     }
 
