@@ -4,4 +4,3 @@ parameters:
 	- src
 	- tests
 	tmpDir: .build/phpstan/
-	reportMaybesInPropertyPhpDocTypes: false
