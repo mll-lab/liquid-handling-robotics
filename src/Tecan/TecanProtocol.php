@@ -47,9 +47,7 @@ class TecanProtocol
     public function buildProtocol(): string
     {
         return $this->commands
-            ->map(function (Command $command): string {
-                return $command->toString();
-            })
+            ->map(fn(Command $command): string => $command->toString())
             ->join(self::WINDOWS_NEW_LINE)
             . self::WINDOWS_NEW_LINE;
     }
