@@ -16,7 +16,7 @@
   },
   "require": {
     "php": "^7.4 || ^8",
-    "bensampo/laravel-enum": "^2 || ^3 || ^4 || ^5",
+    "bensampo/laravel-enum": "^3 || ^4 || ^5",
     "illuminate/support": "^8 || ^9",
     "mll-lab/microplate": "^3.6",
     "mll-lab/php-utils": "^1.2",
