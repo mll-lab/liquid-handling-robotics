@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Add classes and methods for building pipetting instructions for Tecan Freedom EVO robots in the Gemini WorkList file format (*.gwl).
+- Add classes and methods for building pipetting instructions for Tecan Freedom EVO robots in the Gemini WorkList file format (\*.gwl).
 
 ## v1.0.0
 
