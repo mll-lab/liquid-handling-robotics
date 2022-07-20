@@ -25,7 +25,7 @@ class TecanProtocolTest extends TestCase
         $barcodeLocation = new BarcodeLocation('barcode', $rack);
         $location = new BarcodeLocation('barcode1', $rack);
 
-        for ($i = 1; $i <= 5; ++$i) {
+        foreach (range(1, 5) as $_) {
             $tecanProtocol->addCommandForNextTip(
                 new Transfer(
                     new Aspirate(100, $barcodeLocation, $liquidClass),

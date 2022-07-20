@@ -10,7 +10,10 @@ use Mll\LiquidHandlingRobotics\Tecan\TipMask\TipMask;
 
 class TecanProtocol
 {
-    public const NEW_LINE = "\r\n";
+    /**
+     * Tecan software runs on Windows.
+     */
+    public const WINDOWS_NEW_LINE = "\r\n";
 
     /**
      * @var Collection<Command>
@@ -19,9 +22,7 @@ class TecanProtocol
 
     private TipMask $tipMask;
 
-    public function __construct(
-        TipMask $tipMask
-    ) {
+    public function __construct(TipMask $tipMask) {
         $this->commands = new Collection([]);
         $this->tipMask = $tipMask;
     }
