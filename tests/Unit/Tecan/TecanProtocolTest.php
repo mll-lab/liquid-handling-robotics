@@ -7,8 +7,7 @@ use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\Dispense;
 use Mll\LiquidHandlingRobotics\Tecan\CustomCommand\Transfer;
 use Mll\LiquidHandlingRobotics\Tecan\Location\BarcodeLocation;
 use Mll\LiquidHandlingRobotics\Tecan\TecanProtocol;
-use Mll\LiquidHandlingRobotics\Tecan\TipMask\TipMaskEightTips;
-use Mll\LiquidHandlingRobotics\Tecan\TipMask\TipMaskFourTips;
+use Mll\LiquidHandlingRobotics\Tecan\TipMask\TipMask;
 use Mll\LiquidHandlingRobotics\Tests\TestImplentations\TestLiquidClass;
 use Mll\LiquidHandlingRobotics\Tests\TestImplentations\TestRack;
 use MLL\Utils\StringUtil;
@@ -18,7 +17,7 @@ final class TecanProtocolTest extends TestCase
 {
     public function testAspirateWithBarcodeLocationForTips(): void
     {
-        $tecanProtocol = new TecanProtocol(new TipMaskFourTips());
+        $tecanProtocol = new TecanProtocol(TipMask::FOUR_TIPS());
 
         $liquidClass = new TestLiquidClass();
         $rack = new TestRack();
@@ -60,7 +59,7 @@ W;
 
     public function testAspirateWithBarcodeLocation(): void
     {
-        $tecanProtocol = new TecanProtocol(new TipMaskEightTips());
+        $tecanProtocol = new TecanProtocol(TipMask::EIGHT_TIPS());
 
         $liquidClass = new TestLiquidClass();
         $rack = new TestRack();

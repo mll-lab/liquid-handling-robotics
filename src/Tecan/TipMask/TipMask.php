@@ -2,20 +2,43 @@
 
 namespace Mll\LiquidHandlingRobotics\Tecan\TipMask;
 
-abstract class TipMask
+use BenSampo\Enum\Enum;
+use Mll\LiquidHandlingRobotics\Tecan\TecanException;
+
+/**
+ * @method static static FOUR_TIPS()
+ * @method static static EIGHT_TIPS()
+ */
+final class TipMask extends Enum
 {
-    public const FIRST_TIP = 1;
+    public const FOUR_TIPS = 'FOUR_TIPS';
+    public const EIGHT_TIPS = 'EIGHT_TIPS';
+
+    public static function firstTip(): int
+    {
+        return 1;
+    }
 
     public ?int $currentTip = null;
 
-    abstract public function isLastTip(): bool;
+    public function isLastTip(): bool
+    {
+        switch ($this->value) {
+            case self::FOUR_TIPS:
+                return 8 === $this->currentTip;
+            case self::EIGHT_TIPS:
+                return 128 === $this->currentTip;
+            default:
+                throw new TecanException('isLastTip not defined for ' . $this->value);
+        }
+    }
 
     public function nextTip(): int
     {
         if (! isset($this->currentTip) || $this->isLastTip()) {
-            $this->currentTip = self::FIRST_TIP;
+            $this->currentTip = self::firstTip();
         } else {
-            // because of the bitwise nature we can just multiply current tip with 2 switch to the next tip
+            // due to the bitwise nature we can simply multiply the current tip by 2 if we want to specify the next tip.
             $this->currentTip *= 2;
         }
 

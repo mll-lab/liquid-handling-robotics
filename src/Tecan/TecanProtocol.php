@@ -30,7 +30,7 @@ class TecanProtocol
 
     public function addCommandCurrentTip(PipettingActionCommand $command): void
     {
-        $command->setTipMask($this->tipMask->currentTip ?? TipMask::FIRST_TIP);
+        $command->setTipMask($this->tipMask->currentTip ?? TipMask::firstTip());
         $this->commands->add($command);
     }
 
