@@ -11,7 +11,7 @@ use Mll\LiquidHandlingRobotics\Tests\TestImplentations\TestRack;
 use MLL\Utils\StringUtil;
 use PHPUnit\Framework\TestCase;
 
-class TransferWithAutoWashTest extends TestCase
+final class TransferWithAutoWashTest extends TestCase
 {
     public function testTransferWithAutoWashCommand(): void
     {
