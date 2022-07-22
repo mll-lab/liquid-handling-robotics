@@ -2,7 +2,7 @@
 
 namespace Mll\LiquidHandlingRobotics\Tecan\BasicCommands;
 
-use Mll\LiquidHandlingRobotics\Tecan\LiquidClass;
+use Mll\LiquidHandlingRobotics\Tecan\LiquidClass\LiquidClass;
 use Mll\LiquidHandlingRobotics\Tecan\Location\Location;
 
 final class Aspirate extends BasicPipettingActionCommand implements Command

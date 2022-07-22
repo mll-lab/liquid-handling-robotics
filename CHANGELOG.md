@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## v2.0.0
+
+### Added
+
+- Add predefined classes that implement `Rack`- and `LiquidClass`-interface
+- Add `fileName`-method on `TecanProtocol`
+
+### Breaking
+
+- delete superfluous semicolon after TipMask
+- `PositionLocation` returns `$rack->name`
+- `BarcodeLocation` does not return `$rack->name`
+- Move `Rack`- and `LiquidClass`-interface to subdirectory
+- Change signature of `TransferWithAutoWash`-class
+
 ## v1.1.0
 
 ### Added

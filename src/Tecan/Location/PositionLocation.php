@@ -2,7 +2,7 @@
 
 namespace Mll\LiquidHandlingRobotics\Tecan\Location;
 
-use Mll\LiquidHandlingRobotics\Tecan\Rack;
+use Mll\LiquidHandlingRobotics\Tecan\Rack\Rack;
 
 final class PositionLocation implements Location
 {
@@ -28,7 +28,7 @@ final class PositionLocation implements Location
 
     public function rackName(): ?string
     {
-        return null;
+        return $this->rack->name();
     }
 
     public function rackType(): string

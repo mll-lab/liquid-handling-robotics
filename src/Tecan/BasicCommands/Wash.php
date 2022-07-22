@@ -4,13 +4,8 @@ namespace Mll\LiquidHandlingRobotics\Tecan\BasicCommands;
 
 final class Wash implements Command
 {
-    public static function commandLetter(): string
+    public function formatToString(): string
     {
         return 'W;';
-    }
-
-    public function toString(): string
-    {
-        return static::commandLetter();
     }
 }

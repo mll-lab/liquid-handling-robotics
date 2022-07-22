@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Mll\LiquidHandlingRobotics\Tecan;
+namespace Mll\LiquidHandlingRobotics\Tecan\Rack;
 
 interface Rack
 {
