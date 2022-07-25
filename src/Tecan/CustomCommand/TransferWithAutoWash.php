@@ -5,6 +5,9 @@ namespace Mll\LiquidHandlingRobotics\Tecan\CustomCommand;
 use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\Aspirate;
 use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\Dispense;
 use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\PipettingActionCommand;
+use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\Wash;
+use Mll\LiquidHandlingRobotics\Tecan\LiquidClass\LiquidClass;
+use Mll\LiquidHandlingRobotics\Tecan\Location\Location;
 use Mll\LiquidHandlingRobotics\Tecan\TecanProtocol;
 
 final class TransferWithAutoWash implements PipettingActionCommand
@@ -13,25 +16,20 @@ final class TransferWithAutoWash implements PipettingActionCommand
 
     private Dispense $dispense;
 
-    public function __construct(Aspirate $aspirate, Dispense $dispense)
+    public function __construct(float $volume, LiquidClass $liquidClass, Location $aspirateLocation, Location $dispenseLocation)
     {
-        $this->aspirate = $aspirate;
-        $this->dispense = $dispense;
+        $this->aspirate = new Aspirate($volume, $aspirateLocation, $liquidClass);
+        $this->dispense = new Dispense($volume, $dispenseLocation, $liquidClass);
     }
 
-    public static function commandLetter(): string
-    {
-        return 'W;';
-    }
-
-    public function toString(): string
+    public function formatToString(): string
     {
         return
-            $this->aspirate->toString()
+            $this->aspirate->formatToString()
             . TecanProtocol::WINDOWS_NEW_LINE
-            . $this->dispense->toString()
+            . $this->dispense->formatToString()
             . TecanProtocol::WINDOWS_NEW_LINE
-            . static::commandLetter();
+            . (new Wash())->formatToString();
     }
 
     public function setTipMask(int $tipMask): void

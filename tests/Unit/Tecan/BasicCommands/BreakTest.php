@@ -9,6 +9,6 @@ final class BreakTest extends TestCase
 {
     public function testBreakCommand(): void
     {
-        self::assertSame('B;', (new BreakCommand())->toString());
+        self::assertSame('B;', (new BreakCommand())->formatToString());
     }
 }

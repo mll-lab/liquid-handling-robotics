@@ -2,7 +2,7 @@
 
 namespace Mll\LiquidHandlingRobotics\Tecan\BasicCommands;
 
-use Mll\LiquidHandlingRobotics\Tecan\LiquidClass;
+use Mll\LiquidHandlingRobotics\Tecan\LiquidClass\LiquidClass;
 use Mll\LiquidHandlingRobotics\Tecan\Location\Location;
 
 abstract class BasicPipettingActionCommand implements PipettingActionCommand
@@ -17,7 +17,7 @@ abstract class BasicPipettingActionCommand implements PipettingActionCommand
 
     abstract public static function commandLetter(): string;
 
-    public function toString(): string
+    public function formatToString(): string
     {
         return
             static::commandLetter() . ';'
@@ -29,7 +29,7 @@ abstract class BasicPipettingActionCommand implements PipettingActionCommand
             . $this->volume . ';'
             . $this->liquidClass->name() . ';'
             . ';' // tipType
-            . $this->getTipMask() . ';'
+            . $this->getTipMask()
         ;
     }
 

@@ -4,7 +4,5 @@ namespace Mll\LiquidHandlingRobotics\Tecan\BasicCommands;
 
 interface Command
 {
-    public static function commandLetter(): string;
-
-    public function toString(): string;
+    public function formatToString(): string;
 }

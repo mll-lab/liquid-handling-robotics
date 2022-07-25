@@ -3,6 +3,7 @@
 namespace Mll\LiquidHandlingRobotics\Tecan;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\BreakCommand;
 use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\Command;
 use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\PipettingActionCommand;
@@ -15,6 +16,8 @@ final class TecanProtocol
      */
     public const WINDOWS_NEW_LINE = "\r\n";
 
+    public const GEMINI_WORKLIST_FILENAME_SUFFIX = '.gwl';
+
     /**
      * @var Collection<int, Command>
      */
@@ -22,10 +25,13 @@ final class TecanProtocol
 
     private TipMask $tipMask;
 
-    public function __construct(TipMask $tipMask)
+    private string $protocolName;
+
+    public function __construct(TipMask $tipMask, string $protocolName = null)
     {
         $this->commands = new Collection([]);
         $this->tipMask = $tipMask;
+        $this->protocolName = $protocolName ?? Str::uuid()->toString();
     }
 
     public function addCommandCurrentTip(Command $command): void
@@ -52,8 +58,13 @@ final class TecanProtocol
     public function buildProtocol(): string
     {
         return $this->commands
-            ->map(fn (Command $command): string => $command->toString())
+            ->map(fn (Command $command): string => $command->formatToString())
             ->join(self::WINDOWS_NEW_LINE)
             . self::WINDOWS_NEW_LINE;
+    }
+
+    public function fileName(): string
+    {
+        return $this->protocolName . self::GEMINI_WORKLIST_FILENAME_SUFFIX;
     }
 }
