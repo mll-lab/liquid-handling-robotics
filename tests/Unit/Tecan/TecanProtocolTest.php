@@ -22,7 +22,7 @@ final class TecanProtocolTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        Carbon::setTestNow(Carbon::createStrict(2022,10,5,13,34,32));
+        Carbon::setTestNow(Carbon::createStrict(2022, 10, 5, 13, 34, 32));
     }
 
     protected function tearDown(): void
