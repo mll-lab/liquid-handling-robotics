@@ -8,10 +8,13 @@ final class CustomRack implements Rack
 
     private string $type;
 
-    public function __construct(string $name, string $type)
+    private ?string $barcode;
+
+    public function __construct(string $name, string $type, string $barcode = null)
     {
         $this->type = $type;
         $this->name = $name;
+        $this->barcode = $barcode;
     }
 
     public function name(): string
@@ -22,5 +25,10 @@ final class CustomRack implements Rack
     public function type(): string
     {
         return $this->type;
+    }
+
+    public function id(): ?string
+    {
+        return $this->barcode;
     }
 }

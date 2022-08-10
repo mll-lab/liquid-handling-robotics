@@ -60,4 +60,9 @@ final class MllLabWareRack extends Enum implements Rack
 
         return $this->value;
     }
+
+    public function id(): string
+    {
+        return '';
+    }
 }

@@ -1,0 +1,22 @@
+<?php declare(strict_types=1);
+
+namespace Tecan\Rack;
+
+use Mll\LiquidHandlingRobotics\Tecan\Rack\CustomRack;
+use PHPUnit\Framework\TestCase;
+
+final class CustomRackTest extends TestCase
+{
+    public function testCustomRack(): void
+    {
+        $name = 'name';
+        $type = 'type';
+        $barcode = 'barcode';
+
+        $customRack = new CustomRack($name, $type, $barcode);
+
+        self::assertSame($name, $customRack->name());
+        self::assertSame($type, $customRack->type());
+        self::assertSame($barcode, $customRack->id());
+    }
+}
