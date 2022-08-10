@@ -2,7 +2,6 @@
 
 namespace Mll\LiquidHandlingRobotics\Tests\Unit\Tecan;
 
-use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\Aspirate;
 use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\Dispense;
@@ -187,7 +186,7 @@ W;
 
         $tecanProtocol = new TecanProtocol(TipMask::FOUR_TIPS());
 
-        $dispensePositions = new Collection([1, 2, 3, 4, 5, 57]);
+        $dispensePositions = [1, 2, 3, 4, 5, 57];
         $tecanProtocol->addCommandCurrentTip(
             new MllReagentDistribution(
                 new AspirateParameters($sourceRack, 1),
@@ -197,7 +196,7 @@ W;
             )
         );
 
-        $dispensePositions1 = new Collection([6, 7, 50, 58, 74, 75]);
+        $dispensePositions1 = [6, 7, 50, 58, 74, 75];
         $tecanProtocol->addCommandCurrentTip(
             new MllReagentDistribution(
                 new AspirateParameters($sourceRack, 2),
@@ -207,7 +206,7 @@ W;
             )
         );
 
-        $dispensePositions2 = new Collection([8, 10, 51, 59]);
+        $dispensePositions2 = [8, 10, 51, 59];
         $tecanProtocol->addCommandCurrentTip(
             new MllReagentDistribution(
                 new AspirateParameters($sourceRack, 3),
@@ -217,7 +216,7 @@ W;
             )
         );
 
-        $dispensePositions3 = new Collection([11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 52, 60]);
+        $dispensePositions3 = [11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 52, 60];
         $tecanProtocol->addCommandCurrentTip(
             new MllReagentDistribution(
                 new AspirateParameters($sourceRack, 4),
@@ -227,7 +226,7 @@ W;
             )
         );
 
-        $dispensePositions4 = new Collection([24, 25, 26, 27, 28, 29, 30, 53, 61]);
+        $dispensePositions4 = [24, 25, 26, 27, 28, 29, 30, 53, 61];
         $tecanProtocol->addCommandCurrentTip(
             new MllReagentDistribution(
                 new AspirateParameters($sourceRack, 5),
@@ -236,7 +235,7 @@ W;
                 $liquidClass,
             )
         );
-        $dispensePositions5 = new Collection([1, 2, 3, 4, 5]);
+        $dispensePositions5 = [1, 2, 3, 4, 5];
         $tecanProtocol->addCommandCurrentTip(
             new MllReagentDistribution(
                 new AspirateParameters($sourceRack, 5),

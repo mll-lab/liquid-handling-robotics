@@ -2,7 +2,6 @@
 
 namespace Mll\LiquidHandlingRobotics\Tecan\CustomCommand;
 
-use Illuminate\Support\Collection;
 use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\Command;
 use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\ReagentDistribution;
 use Mll\LiquidHandlingRobotics\Tecan\LiquidClass\LiquidClass;
@@ -54,13 +53,16 @@ final class MllReagentDistribution implements Command
      */
     private function excludedWells(): array
     {
-        $allWellsFromStartToEnd = new Collection(range($this->target->dispensePositions->min(), $this->target->dispensePositions->max()));
+        $min = min($this->target->dispensePositions);
+        $max = max($this->target->dispensePositions);
+        assert(is_int($min));
+        assert(is_int($max));
 
-        /** @var array<int, int> $excludedWells */
-        $excludedWells = $allWellsFromStartToEnd
-            ->diff($this->target->dispensePositions)
-            ->toArray();
+        $allWellsFromStartToEnd = range(
+            $min,
+            $max
+        );
 
-        return $excludedWells;
+        return array_diff($allWellsFromStartToEnd, $this->target->dispensePositions);
     }
 }
