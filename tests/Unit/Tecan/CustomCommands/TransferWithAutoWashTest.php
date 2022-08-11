@@ -26,7 +26,7 @@ final class TransferWithAutoWashTest extends TestCase
 D;;;TestRackType;;barcode1;100;TestLiquidClassName;;
 W;'
             ),
-            $transfer->formatToString()
+            $transfer->toString()
         );
     }
 }

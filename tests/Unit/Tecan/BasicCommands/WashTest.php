@@ -9,6 +9,6 @@ final class WashTest extends TestCase
 {
     public function testWashCommand(): void
     {
-        self::assertSame('W;', (new Wash())->formatToString());
+        self::assertSame('W;', (new Wash())->toString());
     }
 }

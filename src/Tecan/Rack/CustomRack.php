@@ -31,4 +31,16 @@ final class CustomRack implements Rack
     {
         return $this->barcode;
     }
+
+    public function toString(): string
+    {
+        return implode(
+            ';',
+            [
+                $this->name(),
+                $this->id(),
+                $this->type(),
+            ]
+        );
+    }
 }

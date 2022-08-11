@@ -13,4 +13,6 @@ interface Location
     public function rackType(): string;
 
     public function rackId(): ?string;
+
+    public function toString(): string;
 }

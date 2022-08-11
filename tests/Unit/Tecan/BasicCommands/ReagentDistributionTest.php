@@ -43,7 +43,7 @@ final class ReagentDistributionTest extends TestCase
         $commandStringWithoutExcludedWells = "R;{$sourceRack->name()};;{$sourceRack->type()};{$sourceStartPosition};{$sourceEndPosition};{$targetRack->name()};;{$targetRack->type()};{$targetStartPosition};{$targetEndPosition};{$dispenseVolume};{$liquidClass->name()};{$numberOfDitiReuses};{$numberOfMultiDisp};{$direction->toString()};";
         self::assertSame(
             $commandStringWithoutExcludedWells,
-            $commandWithoutExcludedWells->formatToString()
+            $commandWithoutExcludedWells->toString()
         );
 
         $excludedWells = [50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71];
@@ -60,7 +60,7 @@ final class ReagentDistributionTest extends TestCase
 
         self::assertSame(
             "{$commandStringWithoutExcludedWells}50;51;52;53;54;55;56;57;58;59;60;61;62;63;64;65;66;67;68;69;70;71",
-            $commandWithExcludedWells->formatToString()
+            $commandWithExcludedWells->toString()
         );
     }
 }

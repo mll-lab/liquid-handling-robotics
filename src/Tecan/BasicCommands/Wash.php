@@ -2,9 +2,9 @@
 
 namespace Mll\LiquidHandlingRobotics\Tecan\BasicCommands;
 
-final class Wash implements Command
+final class Wash extends Command
 {
-    public function formatToString(): string
+    public function toString(): string
     {
         return 'W;';
     }

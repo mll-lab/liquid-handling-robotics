@@ -18,4 +18,6 @@ interface Rack
      * Source labware type (configuration name), e.g. “384 Well, landscape”.
      */
     public function type(): string;
+
+    public function toString(): string;
 }

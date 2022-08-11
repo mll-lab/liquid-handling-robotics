@@ -2,7 +2,7 @@
 
 namespace Mll\LiquidHandlingRobotics\Tecan\BasicCommands;
 
-interface Command
+abstract class Command
 {
-    public function formatToString(): string;
+    abstract public function toString(): string;
 }

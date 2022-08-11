@@ -94,7 +94,7 @@ W;
             $tecanProtocol->addCommandCurrentTip(
                 new Dispense(100, $dispenseLocation, $liquidClass)
             );
-            $tecanProtocol->addCommandCurrentTip(
+            $tecanProtocol->addCommand(
                 new Wash()
             );
         }
@@ -187,7 +187,7 @@ W;
         $tecanProtocol = new TecanProtocol(TipMask::FOUR_TIPS());
 
         $dispensePositions = [1, 2, 3, 4, 5, 57];
-        $tecanProtocol->addCommandCurrentTip(
+        $tecanProtocol->addCommand(
             new MllReagentDistribution(
                 new AspirateParameters($sourceRack, 1),
                 new DispenseParameters($targetRack, $dispensePositions),
@@ -197,7 +197,7 @@ W;
         );
 
         $dispensePositions1 = [6, 7, 50, 58, 74, 75];
-        $tecanProtocol->addCommandCurrentTip(
+        $tecanProtocol->addCommand(
             new MllReagentDistribution(
                 new AspirateParameters($sourceRack, 2),
                 new DispenseParameters($targetRack, $dispensePositions1),
@@ -207,7 +207,7 @@ W;
         );
 
         $dispensePositions2 = [8, 10, 51, 59];
-        $tecanProtocol->addCommandCurrentTip(
+        $tecanProtocol->addCommand(
             new MllReagentDistribution(
                 new AspirateParameters($sourceRack, 3),
                 new DispenseParameters($targetRack, $dispensePositions2),
@@ -217,7 +217,7 @@ W;
         );
 
         $dispensePositions3 = [11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 52, 60];
-        $tecanProtocol->addCommandCurrentTip(
+        $tecanProtocol->addCommand(
             new MllReagentDistribution(
                 new AspirateParameters($sourceRack, 4),
                 new DispenseParameters($targetRack, $dispensePositions3),
@@ -227,7 +227,7 @@ W;
         );
 
         $dispensePositions4 = [24, 25, 26, 27, 28, 29, 30, 53, 61];
-        $tecanProtocol->addCommandCurrentTip(
+        $tecanProtocol->addCommand(
             new MllReagentDistribution(
                 new AspirateParameters($sourceRack, 5),
                 new DispenseParameters($targetRack, $dispensePositions4),
@@ -236,7 +236,7 @@ W;
             )
         );
         $dispensePositions5 = [1, 2, 3, 4, 5];
-        $tecanProtocol->addCommandCurrentTip(
+        $tecanProtocol->addCommand(
             new MllReagentDistribution(
                 new AspirateParameters($sourceRack, 5),
                 new DispenseParameters($targetRack, $dispensePositions5),

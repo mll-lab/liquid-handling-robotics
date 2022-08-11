@@ -21,11 +21,13 @@ final class AspirateAndDispenseParameters
 
     public function formatToString(): string
     {
-        return $this->rack->name() . ';'
-            . $this->rack->id() . ';'
-            . $this->rack->type() . ';'
-            . $this->startPosition . ';'
-            . $this->endPosition
-        ;
+        return implode(
+            ';',
+            [
+                $this->rack->toString(),
+                $this->startPosition,
+                $this->endPosition,
+            ]
+        );
     }
 }

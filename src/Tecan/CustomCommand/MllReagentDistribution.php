@@ -7,7 +7,7 @@ use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\ReagentDistribution;
 use Mll\LiquidHandlingRobotics\Tecan\LiquidClass\LiquidClass;
 use Mll\LiquidHandlingRobotics\Tecan\ReagentDistribution\ReagentDistributionDirection;
 
-final class MllReagentDistribution implements Command
+final class MllReagentDistribution extends Command
 {
     public const NUMBER_OF_DITI_REUSES = 6;
     public const NUMBER_OF_MULTI_DISP = 1;
@@ -32,7 +32,7 @@ final class MllReagentDistribution implements Command
         $this->liquidClass = $liquidClass;
     }
 
-    public function formatToString(): string
+    public function toString(): string
     {
         $reagentDistribution = new ReagentDistribution(
             $this->source->formatToAspirateAndDispenseParameters(),
@@ -45,7 +45,7 @@ final class MllReagentDistribution implements Command
             $this->excludedWells(),
         );
 
-        return $reagentDistribution->formatToString();
+        return $reagentDistribution->toString();
     }
 
     /**

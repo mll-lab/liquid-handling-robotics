@@ -19,7 +19,7 @@ final class AspirateTest extends TestCase
         $aspirate = new Aspirate(100, new BarcodeLocation($barcode, new CustomRack('TestRackName', 'TestRackType')), new CustomLiquidClass('TestLiquidClassName'));
         self::assertSame($barcode, $aspirate->location->tubeId());
         self::assertNull($aspirate->location->position());
-        self::assertSame('A;;;TestRackType;;barcode;100;TestLiquidClassName;;', $aspirate->formatToString());
+        self::assertSame('A;;;TestRackType;;barcode;100;TestLiquidClassName;;', $aspirate->toString());
     }
 
     public function testAspirateWithPositionLocation(): void
@@ -29,6 +29,6 @@ final class AspirateTest extends TestCase
         $aspirate = new Aspirate($volume, new PositionLocation($position, MllLabWareRack::DEST_PCR()), MllLiquidClass::TRANSFER_TEMPLATE());
         self::assertNull($aspirate->location->tubeId());
         self::assertSame((string) $position, $aspirate->location->position());
-        self::assertSame('A;DestPCR;;96 Well PCR ABI semi-skirted;' . $position . ';;2.2;Transfer_Template;;', $aspirate->formatToString());
+        self::assertSame('A;DestPCR;;96 Well PCR ABI semi-skirted;' . $position . ';;2.2;Transfer_Template;;', $aspirate->toString());
     }
 }

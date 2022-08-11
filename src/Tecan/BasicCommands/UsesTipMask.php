@@ -2,7 +2,7 @@
 
 namespace Mll\LiquidHandlingRobotics\Tecan\BasicCommands;
 
-interface PipettingActionCommand extends Command
+interface UsesTipMask
 {
     public function setTipMask(int $tipMask): void;
 }

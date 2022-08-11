@@ -65,4 +65,16 @@ final class MllLabWareRack extends Enum implements Rack
     {
         return null;
     }
+
+    public function toString(): string
+    {
+        return implode(
+            ';',
+            [
+                $this->name(),
+                $this->id(),
+                $this->type(),
+            ]
+        );
+    }
 }

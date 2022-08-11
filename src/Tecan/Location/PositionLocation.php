@@ -40,4 +40,18 @@ final class PositionLocation implements Location
     {
         return null;
     }
+
+    public function toString(): string
+    {
+        return implode(
+            ';',
+            [
+                $this->rackName(),
+                $this->rackId(),
+                $this->rackType(),
+                $this->position(),
+                $this->tubeId(),
+            ]
+        );
+    }
 }

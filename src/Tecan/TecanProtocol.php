@@ -6,7 +6,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\BreakCommand;
 use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\Command;
-use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\PipettingActionCommand;
+use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\UsesTipMask;
 use Mll\LiquidHandlingRobotics\Tecan\TipMask\TipMask;
 
 final class TecanProtocol
@@ -34,23 +34,31 @@ final class TecanProtocol
         $this->protocolName = $protocolName ?? Str::uuid()->toString();
     }
 
-    public function addCommandCurrentTip(Command $command): void
+    public function addCommand(Command $command): void
     {
-        if ($command instanceof PipettingActionCommand) {
-            $command->setTipMask($this->tipMask->currentTip ?? TipMask::firstTip());
-        }
         $this->commands->add($command);
     }
 
+    /**
+     * @param Command&UsesTipMask $command
+     */
+    public function addCommandCurrentTip(Command $command): void
+    {
+        $command->setTipMask($this->tipMask->currentTip ?? TipMask::firstTip());
+
+        $this->commands->add($command);
+    }
+
+    /**
+     * @param Command&UsesTipMask $command
+     */
     public function addCommandForNextTip(Command $command): void
     {
-        if ($command instanceof PipettingActionCommand) {
-            if ($this->tipMask->isLastTip()) {
-                $this->commands->add(new BreakCommand());
-            }
-
-            $command->setTipMask($this->tipMask->nextTip());
+        if ($this->tipMask->isLastTip()) {
+            $this->commands->add(new BreakCommand());
         }
+
+        $command->setTipMask($this->tipMask->nextTip());
 
         $this->commands->add($command);
     }
@@ -58,7 +66,7 @@ final class TecanProtocol
     public function buildProtocol(): string
     {
         return $this->commands
-            ->map(fn (Command $command): string => $command->formatToString())
+            ->map(fn (Command $command): string => $command->toString())
             ->join(self::WINDOWS_NEW_LINE)
             . self::WINDOWS_NEW_LINE;
     }

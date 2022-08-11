@@ -5,7 +5,7 @@ namespace Mll\LiquidHandlingRobotics\Tecan\BasicCommands;
 use Mll\LiquidHandlingRobotics\Tecan\LiquidClass\LiquidClass;
 use Mll\LiquidHandlingRobotics\Tecan\ReagentDistribution\ReagentDistributionDirection;
 
-final class ReagentDistribution implements Command
+final class ReagentDistribution extends Command
 {
     private AspirateAndDispenseParameters $source;
 
@@ -52,18 +52,22 @@ final class ReagentDistribution implements Command
         $this->excludedTargetWells = $excludedTargetWells;
     }
 
-    public function formatToString(): string
+    public function toString(): string
     {
-        return 'R;'
-            . $this->source->formatToString() . ';'
-            . $this->target->formatToString() . ';'
-            . $this->volume . ';'
-            . $this->liquidClass->name() . ';'
-            . $this->numberOfDitiReuses . ';'
-            . $this->numberOfMultiDisp . ';'
-            . $this->direction->value . ';'
-            . $this->excludedWells()
-        ;
+        return implode(
+            ';',
+            [
+                'R',
+                $this->source->formatToString(),
+                $this->target->formatToString(),
+                $this->volume,
+                $this->liquidClass->name(),
+                $this->numberOfDitiReuses,
+                $this->numberOfMultiDisp,
+                $this->direction->value,
+                $this->excludedWells(),
+            ]
+        );
     }
 
     private function excludedWells(): string
