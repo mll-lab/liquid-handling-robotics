@@ -2,6 +2,8 @@
 
 namespace Mll\LiquidHandlingRobotics\Tests\Unit\Tecan;
 
+use Carbon\Carbon;
+use Composer\InstalledVersions;
 use Illuminate\Support\Str;
 use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\Aspirate;
 use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\Dispense;
@@ -17,10 +19,33 @@ use PHPUnit\Framework\TestCase;
 
 final class TecanProtocolTest extends TestCase
 {
-    public function testProtocolCustomName(): void
+    public function setUp(): void
     {
-        $tecanProtocol = new TecanProtocol(TipMask::FOUR_TIPS(), 'testProtocol');
+        parent::setUp();
+        Carbon::setTestNow(Carbon::createStrict(2022, 10, 5, 13, 34, 32));
+    }
+
+    protected function tearDown(): void
+    {
+        parent::tearDown();
+        Carbon::setTestNow(Carbon::now());
+    }
+
+    public function testProtocolUserAndName(): void
+    {
+        $userName = 'username';
+        $protocolName = 'testProtocol';
+        $tecanProtocol = new TecanProtocol(TipMask::FOUR_TIPS(), $protocolName, $userName);
+
         self::assertSame('testProtocol.gwl', $tecanProtocol->fileName());
+        self::assertSame(
+            StringUtil::normalizeLineEndings(
+                $this->initComment() . 'C;User: username
+C;Protocol name: testProtocol
+'
+            ),
+            $tecanProtocol->buildProtocol()
+        );
     }
 
     public function testProtocolUuidName(): void
@@ -48,10 +73,9 @@ final class TecanProtocolTest extends TestCase
                 new TransferWithAutoWash(100, $liquidClass, $aspirateLocation, $dispenseLocation)
             );
         }
-
         self::assertSame(
             StringUtil::normalizeLineEndings(
-                'A;;;TestRackType;;barcode;100;TestLiquidClassName;;1
+                $this->initComment() . 'A;;;TestRackType;;barcode;100;TestLiquidClassName;;1
 D;;;TestRackType;;barcode1;100;TestLiquidClassName;;1
 W;
 A;;;TestRackType;;barcode;100;TestLiquidClassName;;2
@@ -96,7 +120,7 @@ W;
 
         self::assertSame(
             StringUtil::normalizeLineEndings(
-                'A;;;TestRackType;;barcode;100;TestLiquidClassName;;1
+                $this->initComment() . 'A;;;TestRackType;;barcode;100;TestLiquidClassName;;1
 D;;;TestRackType;;barcode1;100;TestLiquidClassName;;1
 W;
 A;;;TestRackType;;barcode;100;TestLiquidClassName;;2
@@ -135,7 +159,7 @@ W;
 
         self::assertSame(
             StringUtil::normalizeLineEndings(
-                'A;;;TestRackType;;barcode;100;TestLiquidClassName;;1
+                $this->initComment() . 'A;;;TestRackType;;barcode;100;TestLiquidClassName;;1
 D;;;TestRackType;;barcode1;100;TestLiquidClassName;;1
 W;
 A;;;TestRackType;;barcode;100;TestLiquidClassName;;2
@@ -170,5 +194,14 @@ W;
             ),
             $tecanProtocol->buildProtocol()
         );
+    }
+
+    private function initComment(): string
+    {
+        $version = InstalledVersions::getPrettyVersion(TecanProtocol::PACKAGE_NAME);
+
+        return "C;Created by mll-lab/liquid-handling-robotics v.{$version}
+C;Date: 2022-10-05 13:34:32
+";
     }
 }
