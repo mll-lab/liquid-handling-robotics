@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Mll\LiquidHandlingRobotics\Tecan\CustomCommand;
+namespace Mll\LiquidHandlingRobotics\Tecan\CustomCommands;
 
 use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\Aspirate;
 use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\Command;

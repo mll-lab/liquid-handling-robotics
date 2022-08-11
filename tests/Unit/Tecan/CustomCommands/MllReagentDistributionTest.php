@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Tecan\CustomCommand;
+namespace Mll\LiquidHandlingRobotics\Tests\Unit\Tecan\CustomCommands;
 
-use Mll\LiquidHandlingRobotics\Tecan\CustomCommand\AspirateParameters;
-use Mll\LiquidHandlingRobotics\Tecan\CustomCommand\DispenseParameters;
-use Mll\LiquidHandlingRobotics\Tecan\CustomCommand\MllReagentDistribution;
+use Mll\LiquidHandlingRobotics\Tecan\CustomCommands\AspirateParameters;
+use Mll\LiquidHandlingRobotics\Tecan\CustomCommands\DispenseParameters;
+use Mll\LiquidHandlingRobotics\Tecan\CustomCommands\MllReagentDistribution;
 use Mll\LiquidHandlingRobotics\Tecan\LiquidClass\MllLiquidClass;
 use Mll\LiquidHandlingRobotics\Tecan\Rack\MllLabWareRack;
 use PHPUnit\Framework\TestCase;

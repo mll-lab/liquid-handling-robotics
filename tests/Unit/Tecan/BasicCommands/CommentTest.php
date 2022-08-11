@@ -12,6 +12,6 @@ final class CommentTest extends TestCase
         $text = 'foo. bar';
         $comment = new Comment($text);
 
-        self::assertSame("C;$text", $comment->formatToString());
+        self::assertSame("C;$text", $comment->toString());
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Mll\LiquidHandlingRobotics\Tecan\BasicCommands;
 
-final class Comment implements Command
+final class Comment extends Command
 {
     private string $comment;
 
@@ -11,7 +11,7 @@ final class Comment implements Command
         $this->comment = $comment;
     }
 
-    public function formatToString(): string
+    public function toString(): string
     {
         return "C;{$this->comment}";
     }
