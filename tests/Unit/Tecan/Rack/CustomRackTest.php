@@ -18,5 +18,7 @@ final class CustomRackTest extends TestCase
         self::assertSame($name, $customRack->name());
         self::assertSame($type, $customRack->type());
         self::assertSame($barcode, $customRack->id());
+
+        self::assertSame('name;barcode;type', $customRack->toString());
     }
 }
