@@ -2,10 +2,13 @@
 
 namespace Mll\LiquidHandlingRobotics\Tecan;
 
+use Carbon\Carbon;
+use Composer\InstalledVersions;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\BreakCommand;
 use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\Command;
+use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\Comment;
 use Mll\LiquidHandlingRobotics\Tecan\BasicCommands\UsesTipMask;
 use Mll\LiquidHandlingRobotics\Tecan\TipMask\TipMask;
 
@@ -17,6 +20,7 @@ final class TecanProtocol
     public const WINDOWS_NEW_LINE = "\r\n";
 
     public const GEMINI_WORKLIST_FILENAME_SUFFIX = '.gwl';
+    public const PACKAGE_NAME = 'mll-lab/liquid-handling-robotics';
 
     /**
      * @var Collection<int, Command>
@@ -27,11 +31,12 @@ final class TecanProtocol
 
     private string $protocolName;
 
-    public function __construct(TipMask $tipMask, string $protocolName = null)
+    public function __construct(TipMask $tipMask, string $protocolName = null, string $userName = null)
     {
-        $this->commands = new Collection([]);
-        $this->tipMask = $tipMask;
         $this->protocolName = $protocolName ?? Str::uuid()->toString();
+        $this->tipMask = $tipMask;
+
+        $this->commands = $this->initHeader($userName, $protocolName);
     }
 
     public function addCommand(Command $command): void
@@ -74,5 +79,26 @@ final class TecanProtocol
     public function fileName(): string
     {
         return $this->protocolName . self::GEMINI_WORKLIST_FILENAME_SUFFIX;
+    }
+
+    /**
+     * @returns Collection<int, Command>
+     */
+    private function initHeader(?string $userName, ?string $protocolName): Collection
+    {
+        $version = InstalledVersions::getPrettyVersion(self::PACKAGE_NAME);
+        $commentCommands = new Collection([
+            new Comment('Created by ' . self::PACKAGE_NAME . " v.{$version}"),
+            new Comment('Date: ' . Carbon::now()),
+        ]);
+
+        if (null !== $userName) {
+            $commentCommands->add(new Comment("User: $userName"));
+        }
+        if (null !== $protocolName) {
+            $commentCommands->add(new Comment("Protocol name: $protocolName"));
+        }
+
+        return $commentCommands;
     }
 }

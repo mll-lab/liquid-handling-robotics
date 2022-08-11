@@ -19,6 +19,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Rename `formatToString` to `toString` in all classes
 - Refactor Command interface to abstract command class
 
+## v2.1.0
+
+### Added
+
+- Add comment command
+- Add initialisation header to protocol
+
 ## v2.0.0
 
 ### Added
