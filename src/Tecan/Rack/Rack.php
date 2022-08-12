@@ -19,5 +19,8 @@ interface Rack
      */
     public function type(): string;
 
+    /**
+     * Serializes the rack parameters as part of a pipetting instruction according the gwl file format.
+     */
     public function toString(): string;
 }

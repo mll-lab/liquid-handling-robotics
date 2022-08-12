@@ -19,7 +19,10 @@ final class AspirateAndDispenseParameters
         $this->endPosition = $endPosition;
     }
 
-    public function formatToString(): string
+    /**
+     * Serializes the aspirate and dispense parameters as part of a reagent distribution according the gwl file format
+     */
+    public function toString(): string
     {
         return implode(
             ';',

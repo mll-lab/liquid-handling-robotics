@@ -58,8 +58,8 @@ final class ReagentDistribution extends Command
             ';',
             [
                 'R',
-                $this->source->formatToString(),
-                $this->target->formatToString(),
+                $this->source->toString(),
+                $this->target->toString(),
                 $this->volume,
                 $this->liquidClass->name(),
                 $this->numberOfDitiReuses,

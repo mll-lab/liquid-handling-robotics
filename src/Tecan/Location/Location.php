@@ -14,5 +14,8 @@ interface Location
 
     public function rackId(): ?string;
 
+    /**
+     * Serializes the location parameters as part of a pipetting instruction according the gwl file format.
+     */
     public function toString(): string;
 }
