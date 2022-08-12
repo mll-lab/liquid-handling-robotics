@@ -20,7 +20,7 @@ final class AspirateAndDispenseParameters
     }
 
     /**
-     * Serializes the aspirate and dispense parameters as part of a reagent distribution according the gwl file format
+     * Serializes the aspirate and dispense parameters as part of a reagent distribution according the gwl file format.
      */
     public function toString(): string
     {
