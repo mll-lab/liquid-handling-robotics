@@ -19,11 +19,9 @@ final class AspirateParameters
 
     public function formatToAspirateAndDispenseParameters(): AspirateAndDispenseParameters
     {
-        /**
-         * Since the aspiration position is in almost all use-cases a single position
-         * and not a range of positions, this class uses only one $sourcePosition
-         * as startPosition and endPosition for convenience.
-         */
+         // Since the aspiration position is in almost all use-cases a single position
+         // and not a range of positions, this class uses only one $sourcePosition
+         // as startPosition and endPosition for convenience.
         return new AspirateAndDispenseParameters(
             $this->rack,
             $this->sourcePosition,
