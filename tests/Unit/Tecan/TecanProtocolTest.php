@@ -287,7 +287,7 @@ R;MM;;Eppis 32x1.5 ml Cooled;5;5;DestPCR;;96 Well PCR ABI semi-skirted;1;5;24;Tr
     {
         $version = InstalledVersions::getPrettyVersion(TecanProtocol::PACKAGE_NAME);
 
-        return "C;Created by mll-lab/liquid-handling-robotics v.{$version}
+        return "C;Created by mll-lab/liquid-handling-robotics {$version}
 C;Date: 2022-10-05 13:34:32
 ";
     }

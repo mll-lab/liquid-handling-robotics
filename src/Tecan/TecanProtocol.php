@@ -88,7 +88,7 @@ final class TecanProtocol
     {
         $version = InstalledVersions::getPrettyVersion(self::PACKAGE_NAME);
         $commentCommands = new Collection([
-            new Comment('Created by ' . self::PACKAGE_NAME . " v.{$version}"),
+            new Comment('Created by ' . self::PACKAGE_NAME . " {$version}"),
             new Comment('Date: ' . Carbon::now()),
         ]);
 
