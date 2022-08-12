@@ -5,7 +5,7 @@ namespace Mll\LiquidHandlingRobotics\Tecan\BasicCommands;
 use Mll\LiquidHandlingRobotics\Tecan\LiquidClass\LiquidClass;
 use Mll\LiquidHandlingRobotics\Tecan\Location\Location;
 
-abstract class BasicPipettingActionCommand implements PipettingActionCommand
+abstract class BasicPipettingActionCommand extends Command implements UsesTipMask
 {
     public float $volume;
 
@@ -17,20 +17,19 @@ abstract class BasicPipettingActionCommand implements PipettingActionCommand
 
     abstract public static function commandLetter(): string;
 
-    public function formatToString(): string
+    public function toString(): string
     {
-        return
-            static::commandLetter() . ';'
-            . $this->location->rackName() . ';'
-            . $this->location->rackId() . ';'
-            . $this->location->rackType() . ';'
-            . $this->location->position() . ';'
-            . $this->location->tubeId() . ';'
-            . $this->volume . ';'
-            . $this->liquidClass->name() . ';'
-            . ';' // tipType
-            . $this->getTipMask()
-        ;
+        return implode(
+            ';',
+            [
+                static::commandLetter(),
+                $this->location->toString(),
+                $this->volume,
+                $this->liquidClass->name(),
+                null, // tipType
+                $this->getTipMask(),
+            ]
+        );
     }
 
     protected function getTipMask(): string

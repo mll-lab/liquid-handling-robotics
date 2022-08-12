@@ -2,9 +2,9 @@
 
 namespace Mll\LiquidHandlingRobotics\Tecan\BasicCommands;
 
-final class BreakCommand implements Command
+final class BreakCommand extends Command
 {
-    public function formatToString(): string
+    public function toString(): string
     {
         return 'B;';
     }

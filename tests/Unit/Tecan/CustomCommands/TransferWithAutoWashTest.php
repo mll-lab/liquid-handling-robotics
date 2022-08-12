@@ -2,7 +2,7 @@
 
 namespace Mll\LiquidHandlingRobotics\Tests\Unit\Tecan\CustomCommands;
 
-use Mll\LiquidHandlingRobotics\Tecan\CustomCommand\TransferWithAutoWash;
+use Mll\LiquidHandlingRobotics\Tecan\CustomCommands\TransferWithAutoWash;
 use Mll\LiquidHandlingRobotics\Tecan\LiquidClass\CustomLiquidClass;
 use Mll\LiquidHandlingRobotics\Tecan\Location\BarcodeLocation;
 use Mll\LiquidHandlingRobotics\Tecan\Rack\CustomRack;
@@ -26,7 +26,7 @@ final class TransferWithAutoWashTest extends TestCase
 D;;;TestRackType;;barcode1;100;TestLiquidClassName;;
 W;'
             ),
-            $transfer->formatToString()
+            $transfer->toString()
         );
     }
 }

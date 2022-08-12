@@ -2,7 +2,10 @@
 
 namespace Mll\LiquidHandlingRobotics\Tecan\BasicCommands;
 
-interface Command
+abstract class Command
 {
-    public function formatToString(): string;
+    /**
+     * Serializes the command-class to a pipetting instruction according the gwl file format.
+     */
+    abstract public function toString(): string;
 }
