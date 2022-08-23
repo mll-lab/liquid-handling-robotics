@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc1a976124134d369a2e05d38778e5c1",
+    "content-hash": "8ff8860644f03497edb9e93275808a01",
     "packages": [
         {
             "name": "bensampo/laravel-enum",
@@ -1419,16 +1419,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v9.25.1",
+            "version": "v9.26.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "e8af8c2212e3717757ea7f459a655a2e9e771109"
+                "reference": "53e20ba7c4df1d1628102811f5b7119e138247f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/e8af8c2212e3717757ea7f459a655a2e9e771109",
-                "reference": "e8af8c2212e3717757ea7f459a655a2e9e771109",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/53e20ba7c4df1d1628102811f5b7119e138247f8",
+                "reference": "53e20ba7c4df1d1628102811f5b7119e138247f8",
                 "shasum": ""
             },
             "require": {
@@ -1595,7 +1595,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-08-16T16:36:05+00:00"
+            "time": "2022-08-23T13:31:34+00:00"
         },
         {
             "name": "laravel/serializable-closure",
@@ -1992,16 +1992,16 @@
         },
         {
             "name": "mll-lab/microplate",
-            "version": "v3.6.0",
+            "version": "v4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mll-lab/microplate.git",
-                "reference": "e642b1d0619c57fe404b537e41ae707489c1a6e1"
+                "reference": "0ff05f1ecee9785cf4f06fc10e85a19353701867"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mll-lab/microplate/zipball/e642b1d0619c57fe404b537e41ae707489c1a6e1",
-                "reference": "e642b1d0619c57fe404b537e41ae707489c1a6e1",
+                "url": "https://api.github.com/repos/mll-lab/microplate/zipball/0ff05f1ecee9785cf4f06fc10e85a19353701867",
+                "reference": "0ff05f1ecee9785cf4f06fc10e85a19353701867",
                 "shasum": ""
             },
             "require": {
@@ -2014,17 +2014,16 @@
                 "ergebnis/composer-normalize": "^2",
                 "infection/infection": "~0.25",
                 "jangregor/phpstan-prophecy": "^1",
-                "laravel/framework": "^7 || ^8",
                 "mll-lab/php-cs-fixer-config": "^4.3",
                 "nunomaduro/larastan": "^1",
-                "orchestra/testbench": "^5 || ^6",
+                "orchestra/testbench": "^5 || ^6 || ^7",
                 "phpstan/extension-installer": "^1",
                 "phpstan/phpstan": "^1",
                 "phpstan/phpstan-deprecation-rules": "^1",
                 "phpstan/phpstan-phpunit": "^1",
                 "phpstan/phpstan-strict-rules": "^1",
                 "phpunit/phpunit": "^9",
-                "rector/rector": "^0.12",
+                "rector/rector": "^0.13",
                 "symfony/var-dumper": "^5 || ^6",
                 "thecodingmachine/phpstan-safe-rule": "^1.1"
             },
@@ -2050,7 +2049,7 @@
                 "issues": "https://github.com/mll-lab/microplate/issues",
                 "source": "https://github.com/mll-lab/microplate"
             },
-            "time": "2022-06-27T13:15:25+00:00"
+            "time": "2022-08-23T13:41:52+00:00"
         },
         {
             "name": "mll-lab/php-utils",
