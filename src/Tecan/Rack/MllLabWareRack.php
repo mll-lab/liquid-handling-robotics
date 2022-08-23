@@ -15,6 +15,8 @@ use Exception;
  * @method static static DEST_LC()
  * @method static static DEST_PCR()
  * @method static static DEST_TAQMAN()
+ *
+ * @extends Enum<string>
  */
 final class MllLabWareRack extends Enum implements Rack
 {
@@ -56,8 +58,6 @@ final class MllLabWareRack extends Enum implements Rack
 
     public function name(): string
     {
-        assert(is_string($this->value));
-
         return $this->value;
     }
 
