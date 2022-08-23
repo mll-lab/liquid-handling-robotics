@@ -10,6 +10,8 @@ use BenSampo\Enum\Enum;
  * @method static static TRANSFER_PCR_PRODUKT()
  * @method static static TRANSFER_MASTERMIX_MP()
  * @method static static TRANSFER_TEMPLATE()
+ *
+ * @extends Enum<string>
  */
 final class MllLiquidClass extends Enum implements LiquidClass
 {
@@ -21,8 +23,6 @@ final class MllLiquidClass extends Enum implements LiquidClass
 
     public function name(): string
     {
-        assert(is_string($this->value));
-
         return $this->value;
     }
 }

@@ -8,6 +8,8 @@ use Mll\LiquidHandlingRobotics\Tecan\TecanException;
 /**
  * @method static static FOUR_TIPS()
  * @method static static EIGHT_TIPS()
+ *
+ * @extends Enum<string>
  */
 final class TipMask extends Enum
 {
@@ -35,12 +37,10 @@ final class TipMask extends Enum
 
     public function nextTip(): int
     {
-        if (! isset($this->currentTip) || $this->isLastTip()) {
-            $this->currentTip = self::firstTip();
-        } else {
+        $this->currentTip = ! isset($this->currentTip) || $this->isLastTip()
+            ? self::firstTip()
             // due to the bitwise nature we can simply multiply the current tip by 2 if we want to specify the next tip.
-            $this->currentTip *= 2;
-        }
+            : $this->currentTip * 2;
 
         return $this->currentTip;
     }

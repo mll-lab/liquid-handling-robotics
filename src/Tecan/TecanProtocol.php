@@ -82,21 +82,26 @@ final class TecanProtocol
     }
 
     /**
-     * @returns Collection<int, Command>
+     * @return Collection<int, Command>
      */
     private function initHeader(?string $userName, ?string $protocolName): Collection
     {
-        $version = InstalledVersions::getPrettyVersion(self::PACKAGE_NAME);
+        $package = self::PACKAGE_NAME;
+        $version = InstalledVersions::getPrettyVersion($package);
+
+        $now = Carbon::now();
+
+        /** @var Collection<int, Command> $commentCommands necessary due to contravariance issues with the generic collection */
         $commentCommands = new Collection([
-            new Comment('Created by ' . self::PACKAGE_NAME . " {$version}"),
-            new Comment('Date: ' . Carbon::now()),
+            new Comment("Created by {$package} {$version}"),
+            new Comment("Date: {$now}"),
         ]);
 
         if (null !== $userName) {
-            $commentCommands->add(new Comment("User: $userName"));
+            $commentCommands->add(new Comment("User: {$userName}"));
         }
         if (null !== $protocolName) {
-            $commentCommands->add(new Comment("Protocol name: $protocolName"));
+            $commentCommands->add(new Comment("Protocol name: {$protocolName}"));
         }
 
         return $commentCommands;

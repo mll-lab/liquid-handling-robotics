@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+
+- Allow `bensampo/laravel-enum` version 6
+
 ## v3.0.1
 
 ### Fixed
