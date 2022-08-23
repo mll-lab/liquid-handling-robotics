@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Allow `mll-lab/microplate` version 4
+- Allow `mll-lab/microplate` version 4.1
 
 ## v3.1.0
 
