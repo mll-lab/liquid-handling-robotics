@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8ff8860644f03497edb9e93275808a01",
+    "content-hash": "b87d37cde8185a21d7f9041d27eb41b1",
     "packages": [
         {
             "name": "bensampo/laravel-enum",
@@ -1992,16 +1992,16 @@
         },
         {
             "name": "mll-lab/microplate",
-            "version": "v4.0.1",
+            "version": "v4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mll-lab/microplate.git",
-                "reference": "0ff05f1ecee9785cf4f06fc10e85a19353701867"
+                "reference": "60c59664b88e7f4f1ba50133bda64d8672962ee3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mll-lab/microplate/zipball/0ff05f1ecee9785cf4f06fc10e85a19353701867",
-                "reference": "0ff05f1ecee9785cf4f06fc10e85a19353701867",
+                "url": "https://api.github.com/repos/mll-lab/microplate/zipball/60c59664b88e7f4f1ba50133bda64d8672962ee3",
+                "reference": "60c59664b88e7f4f1ba50133bda64d8672962ee3",
                 "shasum": ""
             },
             "require": {
@@ -2049,7 +2049,7 @@
                 "issues": "https://github.com/mll-lab/microplate/issues",
                 "source": "https://github.com/mll-lab/microplate"
             },
-            "time": "2022-08-23T13:41:52+00:00"
+            "time": "2022-08-23T14:14:13+00:00"
         },
         {
             "name": "mll-lab/php-utils",
