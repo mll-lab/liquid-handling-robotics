@@ -3,7 +3,6 @@
 namespace Mll\LiquidHandlingRobotics\Tecan\Rack;
 
 use BenSampo\Enum\Enum;
-use Exception;
 
 /**
  * @method static static A()
@@ -52,7 +51,7 @@ final class MllLabWareRack extends Enum implements Rack
             case self::DEST_TAQMAN:
                 return '96 Well PCR TaqMan';
             default:
-                throw new Exception('Type not defined for ' . $this->value);
+                throw new \Exception('Type not defined for ' . $this->value);
         }
     }
 

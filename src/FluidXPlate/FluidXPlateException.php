@@ -2,8 +2,6 @@
 
 namespace Mll\LiquidHandlingRobotics\FluidXPlate;
 
-use Exception;
-
-abstract class FluidXPlateException extends Exception
+abstract class FluidXPlateException extends \Exception
 {
 }

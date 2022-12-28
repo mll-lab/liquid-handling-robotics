@@ -2,8 +2,6 @@
 
 namespace Mll\LiquidHandlingRobotics\TecanScanner;
 
-use Exception;
-
-abstract class TecanScanException extends Exception
+abstract class TecanScanException extends \Exception
 {
 }

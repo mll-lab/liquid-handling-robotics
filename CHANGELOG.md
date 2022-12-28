@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## v4.0.0
+
+### Removed
+
+- Drop support for `mll-lab/microplate` version `^3.6`
+
+### Added
+
+- Add GraphQL-Scalar `FluidXBarcode`
+- Add GraphQL-Scalar `FrameStarBarcode`
+
 ## v3.2.0
 
 ### Added
