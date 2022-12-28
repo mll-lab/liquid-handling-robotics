@@ -7,8 +7,8 @@ use Mll\LiquidHandlingRobotics\FluidXPlate\InvalidRackIdException;
 use Mll\LiquidHandlingRobotics\FluidXPlate\InvalidTubeBarcodeException;
 use Mll\Microplate\Coordinate;
 use Mll\Microplate\CoordinateSystem96Well;
+use Mll\Microplate\Enums\FlowDirection;
 use PHPUnit\Framework\TestCase;
-use TypeError;
 
 final class FluidXPlateTest extends TestCase
 {
@@ -53,8 +53,17 @@ final class FluidXPlateTest extends TestCase
         $fluidXPlate = new FluidXPlate($rackId);
         $coordinate = Coordinate::fromString('A1', new CoordinateSystem96Well());
 
-        $this->expectException(TypeError::class);
+        $this->expectException(\TypeError::class);
         // @phpstan-ignore-next-line intentionally wrong
         $fluidXPlate->addWell($coordinate, []);
+    }
+
+    public function testCanAddToNextFreeWell(): void
+    {
+        $rackId = 'AB12345678';
+        $fluidXPlate = new FluidXPlate($rackId);
+        $expectedCoordinate = Coordinate::fromString('A1', new CoordinateSystem96Well());
+        $addToNextFreeWell = $fluidXPlate->addToNextFreeWell('test', FlowDirection::COLUMN());
+        self::assertEquals($expectedCoordinate, $addToNextFreeWell);
     }
 }

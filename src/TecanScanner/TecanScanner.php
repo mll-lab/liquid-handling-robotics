@@ -46,7 +46,7 @@ final class TecanScanner
                 $plate->addWell(
                     Coordinate::fromString(
                         $coordinateString,
-                        $plate->coordinateSystem
+                        $plate::coordinateSystem()
                     ),
                     $barcode
                 );
