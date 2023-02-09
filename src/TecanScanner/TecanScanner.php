@@ -68,13 +68,11 @@ final class TecanScanner
         if (97 !== count($lines)) {
             return false;
         }
-        if (0 === \Safe\preg_match('/^rackid,' . FluidXPlate::FLUIDX_BARCODE_REGEX_WITHOUT_DELIMITER . '$/', array_shift($lines))) {
+        if (0 === \Safe\preg_match(/* @lang RegExp */'/^' . self::RACKID_IDENTIFIER . FluidXPlate::FLUIDX_BARCODE_REGEX_WITHOUT_DELIMITER . '$/', array_shift($lines))) {
             return false;
         }
-        $coordinateRegex = '[A-H][1-12]';
-
         foreach ($lines as $line) {
-            if (1 !== \Safe\preg_match('/^' . $coordinateRegex . ',' . FluidXPlate::FLUIDX_BARCODE_REGEX_WITHOUT_DELIMITER . '|' . self::NO_READ . '$/', $line)) {
+            if (1 !== \Safe\preg_match(/* @lang RegExp */'/^' . '[A-H][1-12]' . ',' . FluidXPlate::FLUIDX_BARCODE_REGEX_WITHOUT_DELIMITER . '|' . self::NO_READ . '$/', $line)) {
                 return false;
             }
         }
