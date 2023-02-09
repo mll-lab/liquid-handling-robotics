@@ -10,7 +10,8 @@ use Mll\Microplate\Microplate;
 
 final class FluidXPlate
 {
-    public const FLUIDX_BARCODE_REGEX = /* @lang RegExp */ '/[A-Z]{2}(\d){8}/';
+    public const FLUIDX_BARCODE_REGEX = /* @lang RegExp */ '/' . self::FLUIDX_BARCODE_REGEX_WITHOUT_DELIMITER . '/';
+    public const FLUIDX_BARCODE_REGEX_WITHOUT_DELIMITER = '[A-Z]{2}(\d){8}';
 
     public string $rackId;
 

@@ -14,6 +14,7 @@ use MLL\Utils\StringUtil;
 final class TecanScanner
 {
     public const NO_READ = 'NO READ';
+    public const RACKID_IDENTIFIER = 'rackid,';
 
     public static function parseRawContent(string $rawContent): FluidXPlate
     {
@@ -25,9 +26,10 @@ final class TecanScanner
 
         $firstLineWithRackId = $lines->shift();
 
-        if (! is_string($firstLineWithRackId) || ! Str::startsWith($firstLineWithRackId, 'rackid,')) {
+        if (! is_string($firstLineWithRackId) || ! Str::startsWith($firstLineWithRackId, self::RACKID_IDENTIFIER)) {
             throw new NoRackIdException();
         }
+        $rackId = Str::substr($firstLineWithRackId, strlen(self::RACKID_IDENTIFIER));
 
         $expectedCount = FluidXPlate::coordinateSystem()->positionsCount();
         $actualCount = $lines->count();
@@ -35,7 +37,7 @@ final class TecanScanner
             throw new WrongNumberOfWells($expectedCount, $actualCount);
         }
 
-        $plate = new FluidXPlate(Str::substr($firstLineWithRackId, 7));
+        $plate = new FluidXPlate($rackId);
 
         foreach ($lines as $line) {
             $barcode = Str::after($line, ',');
@@ -54,5 +56,27 @@ final class TecanScanner
         }
 
         return $plate;
+    }
+
+    /**
+     * Checks if a string can be parsed into a FluidXPlate.
+     */
+    public static function isValidRawContent(string $rawContent): bool
+    {
+        $lines = explode("\n", $rawContent);
+
+        if (97 !== count($lines)) {
+            return false;
+        }
+        if (0 === \Safe\preg_match(/* @lang RegExp */ '/^' . self::RACKID_IDENTIFIER . FluidXPlate::FLUIDX_BARCODE_REGEX_WITHOUT_DELIMITER . '$/', array_shift($lines))) {
+            return false;
+        }
+        foreach ($lines as $line) {
+            if (1 !== \Safe\preg_match(/* @lang RegExp */ '/^[A-H][1-12],' . FluidXPlate::FLUIDX_BARCODE_REGEX_WITHOUT_DELIMITER . '|' . self::NO_READ . '$/', $line)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
