@@ -63,7 +63,7 @@ final class TecanScanner
      */
     public static function isValidRawContent(string $rawContent): bool
     {
-        $lines = explode("\n", $rawContent);
+        $lines = StringUtil::splitLines($rawContent);
 
         if (97 !== count($lines)) {
             return false;
