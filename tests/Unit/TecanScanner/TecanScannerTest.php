@@ -62,4 +62,11 @@ final class TecanScannerTest extends TestCase
         ], $fluidXPlate->filledWells()->toArray());
         self::assertTrue(TecanScanner::isValidRawContent($rawContent));
     }
+
+    public function testSuccessForWindowsNewLine(): void
+    {
+        $rawContent = "rackid,SA00411242\r\nA1,FD13945423\r\nB1,FD32807353\r\nC1,NO READ\r\nD1,NO READ\r\nE1,NO READ\r\nF1,NO READ\r\nG1,NO READ\r\nH1,NO READ\r\nA2,NO READ\r\nB2,NO READ\r\nC2,NO READ\r\nD2,NO READ\r\nE2,NO READ\r\nF2,NO READ\r\nG2,NO READ\r\nH2,NO READ\r\nA3,NO READ\r\nB3,NO READ\r\nC3,NO READ\r\nD3,NO READ\r\nE3,NO READ\r\nF3,NO READ\r\nG3,NO READ\r\nH3,NO READ\r\nA4,NO READ\r\nB4,NO READ\r\nC4,NO READ\r\nD4,NO READ\r\nE4,NO READ\r\nF4,NO READ\r\nG4,NO READ\r\nH4,NO READ\r\nA5,NO READ\r\nB5,NO READ\r\nC5,NO READ\r\nD5,NO READ\r\nE5,NO READ\r\nF5,NO READ\r\nG5,NO READ\r\nH5,NO READ\r\nA6,NO READ\r\nB6,NO READ\r\nC6,NO READ\r\nD6,NO READ\r\nE6,NO READ\r\nF6,NO READ\r\nG6,NO READ\r\nH6,NO READ\r\nA7,NO READ\r\nB7,NO READ\r\nC7,NO READ\r\nD7,NO READ\r\nE7,NO READ\r\nF7,NO READ\r\nG7,NO READ\r\nH7,NO READ\r\nA8,NO READ\r\nB8,NO READ\r\nC8,NO READ\r\nD8,NO READ\r\nE8,NO READ\r\nF8,NO READ\r\nG8,NO READ\r\nH8,NO READ\r\nA9,NO READ\r\nB9,NO READ\r\nC9,NO READ\r\nD9,NO READ\r\nE9,NO READ\r\nF9,NO READ\r\nG9,NO READ\r\nH9,NO READ\r\nA10,NO READ\r\nB10,NO READ\r\nC10,NO READ\r\nD10,NO READ\r\nE10,NO READ\r\nF10,NO READ\r\nG10,NO READ\r\nH10,NO READ\r\nA11,NO READ\r\nB11,NO READ\r\nC11,NO READ\r\nD11,NO READ\r\nE11,NO READ\r\nF11,NO READ\r\nG11,NO READ\r\nH11,NO READ\r\nA12,NO READ\r\nB12,NO READ\r\nC12,NO READ\r\nD12,NO READ\r\nE12,NO READ\r\nF12,NO READ\r\nG12,NO READ\r\nH12,NO READ";
+
+        self::assertTrue(TecanScanner::isValidRawContent($rawContent));
+    }
 }
