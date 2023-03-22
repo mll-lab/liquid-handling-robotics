@@ -55,8 +55,6 @@ final class MllReagentDistribution extends Command
     {
         $min = min($this->target->dispensePositions);
         $max = max($this->target->dispensePositions);
-        assert(is_int($min));
-        assert(is_int($max));
 
         $allWellsFromStartToEnd = range($min, $max);
 
