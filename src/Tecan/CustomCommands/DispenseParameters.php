@@ -29,13 +29,7 @@ final class DispenseParameters
         // Exclusion of the not excluded wells will happen in the calling class.
         $startPosition = min($this->dispensePositions);
         $endPosition = max($this->dispensePositions);
-        assert(is_int($startPosition));
-        assert(is_int($endPosition));
 
-        return new AspirateAndDispenseParameters(
-            $this->rack,
-            $startPosition,
-            $endPosition
-        );
+        return new AspirateAndDispenseParameters($this->rack, $startPosition, $endPosition);
     }
 }

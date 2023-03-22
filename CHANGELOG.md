@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## v5.0.0
+
+### Added
+
+- Support Laravel 10
+
+### Changed
+
+- Require `mll-lab/graphql-php-scalars:^6`
+- Require `mll-lab/microplate:^5`
+
 ## v4.1.1
 
 ### Fixed
