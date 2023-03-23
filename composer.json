@@ -42,7 +42,7 @@
     "thecodingmachine/phpstan-safe-rule": "^1.1"
   },
   "suggest": {
-    "mll-lab/graphql-php-scalars": "To use the provided scalar types for GraphQL servers"
+    "mll-lab/graphql-php-scalars": "To use the provided scalar types for GraphQL servers, requires version ^6"
   },
   "autoload": {
     "psr-4": {
