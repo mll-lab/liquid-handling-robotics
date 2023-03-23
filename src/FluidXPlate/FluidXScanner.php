@@ -57,26 +57,24 @@ class FluidXScanner
         $barcodes = [];
         $id = null;
         foreach ($lines as $line) {
-            if ('' !== $line
-                && self::READING !== $line
-                && self::XTR_96_CONNECTED !== $line
-            ) {
-                $content = explode(', ', $line);
+            if ('' === $line || self::READING === $line || self::XTR_96_CONNECTED === $line) {
+                continue;
+            }
+            $content = explode(', ', $line);
 
-                if (count($content) > 3) {
-                    // All valid lines contain the same plate barcode
-                    $id = $content[3];
-                    if (FluidXScanner::NO_READ === $id && isset($content[4])) {
-                        $id = $content[4];
-                    }
+            if (count($content) > 3) {
+                // All valid lines contain the same plate barcode
+                $id = $content[3];
+                if (FluidXScanner::NO_READ === $id && isset($content[4])) {
+                    $id = $content[4];
+                }
 
-                    $barcodeScanResult = $content[1];
-                    $coordinateString = $content[0];
-                    if (self::NO_READ !== $barcodeScanResult
-                        && self::NO_TUBE !== $barcodeScanResult
-                    ) {
-                        $barcodes[$coordinateString] = $barcodeScanResult;
-                    }
+                $barcodeScanResult = $content[1];
+                $coordinateString = $content[0];
+                if (self::NO_READ !== $barcodeScanResult
+                    && self::NO_TUBE !== $barcodeScanResult
+                ) {
+                    $barcodes[$coordinateString] = $barcodeScanResult;
                 }
             }
         }
