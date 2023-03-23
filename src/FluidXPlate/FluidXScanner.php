@@ -64,7 +64,7 @@ class FluidXScanner
             if (count($content) <= 3) {
                 continue;
             }
-            
+
             // All valid lines contain the same plate barcode
             $id = $content[3];
             if (FluidXScanner::NO_READ === $id && isset($content[4])) {
