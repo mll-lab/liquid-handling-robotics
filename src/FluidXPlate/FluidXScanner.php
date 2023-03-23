@@ -73,9 +73,7 @@ class FluidXScanner
 
             $barcodeScanResult = $content[1];
             $coordinateString = $content[0];
-            if (self::NO_READ !== $barcodeScanResult
-                && self::NO_TUBE !== $barcodeScanResult
-            ) {
+            if (self::NO_READ !== $barcodeScanResult && self::NO_TUBE !== $barcodeScanResult) {
                 $barcodes[$coordinateString] = $barcodeScanResult;
             }
         }
