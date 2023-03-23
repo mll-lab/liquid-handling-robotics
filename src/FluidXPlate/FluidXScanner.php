@@ -85,15 +85,15 @@ class FluidXScanner
             throw new ScanFluidXPlateException('Der Scanner lieferte keinen Plattenbarcode zurück.');
         }
 
-        $plate = new FluidXPlate($id);
-        foreach ($barcodes as $coordinate => $barcode) {
-            $plate->addWell(Coordinate::fromString($coordinate, new CoordinateSystem96Well()), $barcode);
-        }
-
         if (FluidXScanner::NO_READ === $id) {
             throw new ScanFluidXPlateException([] === $barcodes
                 ? 'Weder Platten-Barcode noch Tube-Barcodes konnten gescannt werden. Bitte überprüfen Sie, dass die Platte korrekt in den FluidX-Scanner eingelegt wurde.'
                 : 'Platten-Barcode konnte nicht gescannt werden. Bitte überprüfen Sie, dass die Platte mit der korrekten Orientierung in den FluidX-Scanner eingelegt wurde.');
+        }
+
+        $plate = new FluidXPlate($id);
+        foreach ($barcodes as $coordinate => $barcode) {
+            $plate->addWell(Coordinate::fromString($coordinate, new CoordinateSystem96Well()), $barcode);
         }
 
         return $plate;
