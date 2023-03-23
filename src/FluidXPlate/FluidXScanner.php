@@ -61,21 +61,22 @@ class FluidXScanner
                 continue;
             }
             $content = explode(', ', $line);
+            if (count($content) <= 3) {
+                continue;
+            }
+            
+            // All valid lines contain the same plate barcode
+            $id = $content[3];
+            if (FluidXScanner::NO_READ === $id && isset($content[4])) {
+                $id = $content[4];
+            }
 
-            if (count($content) > 3) {
-                // All valid lines contain the same plate barcode
-                $id = $content[3];
-                if (FluidXScanner::NO_READ === $id && isset($content[4])) {
-                    $id = $content[4];
-                }
-
-                $barcodeScanResult = $content[1];
-                $coordinateString = $content[0];
-                if (self::NO_READ !== $barcodeScanResult
-                    && self::NO_TUBE !== $barcodeScanResult
-                ) {
-                    $barcodes[$coordinateString] = $barcodeScanResult;
-                }
+            $barcodeScanResult = $content[1];
+            $coordinateString = $content[0];
+            if (self::NO_READ !== $barcodeScanResult
+                && self::NO_TUBE !== $barcodeScanResult
+            ) {
+                $barcodes[$coordinateString] = $barcodeScanResult;
             }
         }
 
