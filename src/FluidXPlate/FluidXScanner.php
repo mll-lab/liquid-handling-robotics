@@ -16,11 +16,11 @@ class FluidXScanner
     private const XTR_96_CONNECTED = 'xtr-96 Connected';
     private const NO_READ = 'NO READ';
     private const NO_TUBE = 'NO TUBE';
-    public const TEST_IP = '127.0.0.1';
+    public const LOCALHOST = '127.0.0.1';
 
     public function scanPlate(string $ip): FluidXPlate
     {
-        if (self::TEST_IP === $ip) {
+        if (self::LOCALHOST === $ip) {
             return self::returnTestPlate();
         }
 
