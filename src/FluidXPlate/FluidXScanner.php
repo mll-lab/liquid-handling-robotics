@@ -25,7 +25,7 @@ class FluidXScanner
         }
 
         if ('' === $ip) {
-            throw new ScanFluidXPlateException('Cannot start scan request without a IP address');
+            throw new ScanFluidXPlateException('Cannot start scan request without an IP address.');
         }
 
         try {
