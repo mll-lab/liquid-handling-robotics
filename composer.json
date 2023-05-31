@@ -21,7 +21,7 @@
     "illuminate/support": "^8 || ^9 || ^10",
     "mll-lab/microplate": "^5",
     "mll-lab/php-utils": "^1.2",
-    "thecodingmachine/safe": "^1"
+    "thecodingmachine/safe": "^1 || ^2"
   },
   "require-dev": {
     "ergebnis/composer-normalize": "^2",
