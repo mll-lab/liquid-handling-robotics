@@ -5,7 +5,7 @@ namespace Mll\LiquidHandlingRobotics\TecanScanner;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Mll\LiquidHandlingRobotics\FluidXPlate\FluidXPlate;
-use Mll\Microplate\Coordinate;
+use Mll\Microplate\Coordinates;
 use MLL\Utils\StringUtil;
 
 /**
@@ -43,11 +43,11 @@ final class TecanScanner
             $barcode = Str::after($line, ',');
 
             if (self::NO_READ !== $barcode) {
-                $coordinateString = Str::before($line, ',');
+                $coordinatesString = Str::before($line, ',');
 
                 $plate->addWell(
-                    Coordinate::fromString(
-                        $coordinateString,
+                    Coordinates::fromString(
+                        $coordinatesString,
                         $plate::coordinateSystem()
                     ),
                     $barcode

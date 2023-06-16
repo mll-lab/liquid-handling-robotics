@@ -3,7 +3,7 @@
 namespace Mll\LiquidHandlingRobotics\FluidXPlate;
 
 use Illuminate\Support\Str;
-use Mll\Microplate\Coordinate;
+use Mll\Microplate\Coordinates;
 use Mll\Microplate\CoordinateSystem96Well;
 use MLL\Utils\StringUtil;
 
@@ -72,9 +72,9 @@ class FluidXScanner
             }
 
             $barcodeScanResult = $content[1];
-            $coordinateString = $content[0];
+            $coordinatesString = $content[0];
             if (self::NO_READ !== $barcodeScanResult && self::NO_TUBE !== $barcodeScanResult) {
-                $barcodes[$coordinateString] = $barcodeScanResult;
+                $barcodes[$coordinatesString] = $barcodeScanResult;
             }
         }
 
@@ -89,8 +89,8 @@ class FluidXScanner
         }
 
         $plate = new FluidXPlate($id);
-        foreach ($barcodes as $coordinate => $barcode) {
-            $plate->addWell(Coordinate::fromString($coordinate, new CoordinateSystem96Well()), $barcode);
+        foreach ($barcodes as $coordinates => $barcode) {
+            $plate->addWell(Coordinates::fromString($coordinates, new CoordinateSystem96Well()), $barcode);
         }
 
         return $plate;

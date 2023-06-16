@@ -5,7 +5,7 @@ namespace Mll\LiquidHandlingRobotics\Tests\Unit\FluidXPlate;
 use Mll\LiquidHandlingRobotics\FluidXPlate\FluidXPlate;
 use Mll\LiquidHandlingRobotics\FluidXPlate\InvalidRackIdException;
 use Mll\LiquidHandlingRobotics\FluidXPlate\InvalidTubeBarcodeException;
-use Mll\Microplate\Coordinate;
+use Mll\Microplate\Coordinates;
 use Mll\Microplate\CoordinateSystem96Well;
 use Mll\Microplate\Enums\FlowDirection;
 use PHPUnit\Framework\TestCase;
@@ -41,29 +41,29 @@ final class FluidXPlateTest extends TestCase
         $barcode = 'testWrongBarcode';
         $rackId = 'AB12345678';
         $fluidXPlate = new FluidXPlate($rackId);
-        $coordinate = Coordinate::fromString('A1', new CoordinateSystem96Well());
+        $coordinates = Coordinates::fromString('A1', new CoordinateSystem96Well());
 
         $this->expectExceptionObject(new InvalidTubeBarcodeException($barcode));
-        $fluidXPlate->addWell($coordinate, $barcode);
+        $fluidXPlate->addWell($coordinates, $barcode);
     }
 
     public function testCanOnlyAddStringAsBarcode(): void
     {
         $rackId = 'AB12345678';
         $fluidXPlate = new FluidXPlate($rackId);
-        $coordinate = Coordinate::fromString('A1', new CoordinateSystem96Well());
+        $coordinates = Coordinates::fromString('A1', new CoordinateSystem96Well());
 
         $this->expectException(\TypeError::class);
         // @phpstan-ignore-next-line intentionally wrong
-        $fluidXPlate->addWell($coordinate, []);
+        $fluidXPlate->addWell($coordinates, []);
     }
 
     public function testCanAddToNextFreeWell(): void
     {
         $rackId = 'AB12345678';
         $fluidXPlate = new FluidXPlate($rackId);
-        $expectedCoordinate = Coordinate::fromString('A1', new CoordinateSystem96Well());
+        $expectedCoordinates = Coordinates::fromString('A1', new CoordinateSystem96Well());
         $addToNextFreeWell = $fluidXPlate->addToNextFreeWell('test', FlowDirection::COLUMN());
-        self::assertEquals($expectedCoordinate, $addToNextFreeWell);
+        self::assertEquals($expectedCoordinates, $addToNextFreeWell);
     }
 }

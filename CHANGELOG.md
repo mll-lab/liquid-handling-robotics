@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## v6.0.0
+
+### Changed
+
+- Require `mll-lab/microplate:^6`
+
 ## v5.3.0
 
 ### Added

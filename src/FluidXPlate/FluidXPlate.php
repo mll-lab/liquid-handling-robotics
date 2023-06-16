@@ -3,7 +3,7 @@
 namespace Mll\LiquidHandlingRobotics\FluidXPlate;
 
 use Illuminate\Support\Collection;
-use Mll\Microplate\Coordinate;
+use Mll\Microplate\Coordinates;
 use Mll\Microplate\CoordinateSystem96Well;
 use Mll\Microplate\Enums\FlowDirection;
 use Mll\Microplate\Microplate;
@@ -35,21 +35,21 @@ final class FluidXPlate
     }
 
     /**
-     * @param Coordinate<CoordinateSystem96Well> $coordinate
+     * @param Coordinates<CoordinateSystem96Well> $coordinates
      */
-    public function addWell(Coordinate $coordinate, string $barcode): void
+    public function addWell(Coordinates $coordinates, string $barcode): void
     {
         if (0 === \Safe\preg_match(self::FLUIDX_BARCODE_REGEX, $barcode)) {
             throw new InvalidTubeBarcodeException($barcode);
         }
 
-        $this->microplate->addWell($coordinate, $barcode);
+        $this->microplate->addWell($coordinates, $barcode);
     }
 
     /**
-     * @return Coordinate<CoordinateSystem96Well>
+     * @return Coordinates<CoordinateSystem96Well>
      */
-    public function addToNextFreeWell(string $content, FlowDirection $flowDirection): Coordinate
+    public function addToNextFreeWell(string $content, FlowDirection $flowDirection): Coordinates
     {
         return $this->microplate->addToNextFreeWell($content, $flowDirection);
     }

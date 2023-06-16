@@ -19,7 +19,7 @@
     "bensampo/laravel-enum": "^3 || ^4 || ^5 || ^6",
     "composer/composer": "^2",
     "illuminate/support": "^8 || ^9 || ^10",
-    "mll-lab/microplate": "^5",
+    "mll-lab/microplate": "^6",
     "mll-lab/php-utils": "^1.2",
     "thecodingmachine/safe": "^1 || ^2"
   },
